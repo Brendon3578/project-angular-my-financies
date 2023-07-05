@@ -1,0 +1,73 @@
+.dashboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 4rem;
+  padding: 0 1rem;
+}
+.search-container {
+  h3 {
+    font-weight: 500;
+    font-size: 1.125rem;
+  }
+  .inputs {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    max-width: 40rem;
+
+    button {
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+.cards-itens {
+  display: flex;
+  gap: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+  .cards-itens {
+    flex-direction: column;
+  }
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.mat-mdc-card {
+  width: 400px;
+  height: 120px;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.conteudo {
+  font-size: 1.5rem;
+}
+
+.titulo {
+  font-size: 1.6rem;
+  padding: 20px;
+}
+
+.receita {
+  background-color: rgb(75, 179, 75);
+  color: #fff;
+}
+
+.despesa {
+  background-color: rgb(190, 81, 81);
+  color: #fff;
+}
+
+.saldo {
+  background-color: rgb(35, 127, 177);
+  color: #fff;
+}

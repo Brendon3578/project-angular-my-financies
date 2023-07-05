@@ -1,0 +1,90 @@
+<main class="form-page">
+  <form class="form mat-elevation-z8" [formGroup]="formEntrada">
+    <h1 class="form-title">
+      <mat-icon *ngIf="!isNewEntrada"> credit_card </mat-icon>
+      <mat-icon *ngIf="isNewEntrada"> add_card </mat-icon>
+      {{ formTitle }}
+    </h1>
+
+    <mat-form-field class="full-width">
+      <mat-label>Entrada</mat-label>
+      <input matInput placeholder="Ex. Gás de Cozinha" formControlName="nome" />
+    </mat-form-field>
+
+    <div class="two-columns">
+      <mat-form-field>
+        <mat-label>Categoria</mat-label>
+        <mat-select formControlName="categoriaId">
+          <mat-option
+            *ngFor="let categoria of categorias$ | async"
+            [value]="categoria.id"
+          >
+            {{ categoria.nome }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Tipo</mat-label>
+        <mat-select formControlName="tipo">
+          <mat-option *ngFor="let tipo of tiposDeEntradas" [value]="tipo.value">
+            {{ tipo.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="two-columns">
+      <mat-form-field class="full-width">
+        <mat-label>Valor</mat-label>
+        <input
+          type="number"
+          matInput
+          placeholder="Ex. 125.00"
+          formControlName="valor"
+          mask="separator.2"
+          thousandSeparator=","
+          prefix="R$"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Selecione uma data</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="data" />
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="full-width">
+      <mat-checkbox formControlName="pago" color="primary"
+        >Marcar que já foi pago</mat-checkbox
+      >
+    </div>
+
+    <div class="form-action">
+      <button
+        type="button"
+        mat-raised-button
+        color="primary"
+        (click)="this.saveEntrada()"
+        [disabled]="
+          !formEntrada.valid ||
+          !(this.formEntrada.touched && this.formEntrada.dirty)
+        "
+      >
+        {{ buttonMessage }}
+      </button>
+      <button
+        mat-raised-button
+        (click)="this.redirectToMainPage()"
+        type="button"
+      >
+        Cancelar
+      </button>
+    </div>
+  </form>
+</main>

@@ -1,0 +1,36 @@
+.mat-toolbar {
+  border-bottom: 1px solid #ccc;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 22px;
+
+  .toolbar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #673ab7;
+    transform: translateY(2px);
+  }
+}
+
+.link-list {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  a {
+    font-size: 16px;
+
+    &.active {
+      color: #673ab7;
+      border-color: #673ab7;
+    }
+  }
+}

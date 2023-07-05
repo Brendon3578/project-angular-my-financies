@@ -1,0 +1,18 @@
+<mat-toolbar>
+  <span class="toolbar-title"
+    >Minhas Finanças
+    <span class="toolbar-icon">
+      <mat-icon> wallet </mat-icon>
+    </span>
+  </span>
+  <span class="example-spacer"></span>
+  <div class="link-list">
+    <a
+      *ngFor="let link of menuLinksList"
+      routerLink="{{ link.route }}"
+      routerLinkActive="active"
+      mat-stroked-button
+      >{{ link.label }}</a
+    >
+  </div>
+</mat-toolbar>

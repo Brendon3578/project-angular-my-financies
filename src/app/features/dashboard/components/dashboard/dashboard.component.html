@@ -1,0 +1,73 @@
+<div class="dashboard">
+  <h1 class="title">Minhas Finanças</h1>
+  <form class="search-container" [formGroup]="formDashboard">
+    <h3>Filtar por mês e ano</h3>
+    <div class="inputs">
+      <mat-form-field appearance="fill" class="input-item">
+        <mat-label>Mês</mat-label>
+        <mat-select formControlName="mes">
+          <mat-option>Selecione o mês</mat-option>
+          <mat-option *ngFor="let month of months" [value]="month.value">{{
+            month.viewValue
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="input-item">
+        <mat-label>Ano</mat-label>
+        <mat-select formControlName="ano">
+          <mat-option value="2023">2023</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button
+        mat-mini-fab
+        type="button"
+        color="primary"
+        aria-label="Buscar por parâmetros"
+        [disabled]="formDashboard.invalid"
+        (click)="getEntradas()"
+      >
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
+  </form>
+
+  <div class="cards-itens">
+    <div class="flex-item">
+      <mat-card class="receita">
+        <mat-card-header class="center">
+          <mat-card-title class="titulo"> Receitas </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="center conteudo">
+          {{ receita | currency : "BRL" }}
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="flex-item">
+      <mat-card class="despesa">
+        <mat-card-header class="center">
+          <mat-card-title class="titulo"> Despesas </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="center conteudo">
+          {{ despesa | currency : "BRL" : "R$ " }}
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="flex-item">
+      <mat-card class="saldo">
+        <mat-card-header class="center">
+          <mat-card-title class="titulo"> Saldo </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="center conteudo">
+          {{ saldo | currency : "BRL" : "R$ " }}
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

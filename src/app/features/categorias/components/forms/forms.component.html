@@ -1,0 +1,44 @@
+<main class="form-page">
+  <form class="form mat-elevation-z8" [formGroup]="formCategoria">
+    <h1 class="form-title">
+      <mat-icon *ngIf="!isNewCategoria"> label </mat-icon>
+      <mat-icon *ngIf="isNewCategoria"> new_label </mat-icon>
+      {{ formTitle }}
+    </h1>
+    <mat-form-field class="full-width">
+      <mat-label>Categoria</mat-label>
+      <input matInput placeholder="Ex. Alimentação" formControlName="nome" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Descrição</mat-label>
+      <textarea
+        matInput
+        placeholder="Digite as informações importantes"
+        formControlName="descricao"
+      ></textarea>
+    </mat-form-field>
+
+    <div class="form-action">
+      <button
+        type="button"
+        mat-raised-button
+        color="primary"
+        (click)="this.saveCategoria()"
+        [disabled]="
+          !formCategoria.valid ||
+          !(this.formCategoria.touched && this.formCategoria.dirty)
+        "
+      >
+        {{ buttonMessage }}
+      </button>
+      <button
+        mat-raised-button
+        (click)="this.redirectToMainPage()"
+        type="button"
+      >
+        Cancelar
+      </button>
+    </div>
+  </form>
+</main>

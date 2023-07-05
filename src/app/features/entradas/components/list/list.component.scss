@@ -1,0 +1,46 @@
+.mat-column-actions {
+  text-align: center;
+}
+
+.chip {
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+}
+.paid {
+  color: #43a446;
+  background-color: #43a44650;
+}
+
+.pending {
+  color: #ff4c1e;
+  background-color: #ff4b1e50;
+}
+
+.entrada-tipo-text {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.125rem;
+    border-radius: 0.125rem;
+    * {
+      font-size: 1rem;
+      width: 18px;
+      height: 18px;
+      transform: translateY(2px);
+    }
+
+    &.icon-despesa {
+      background-color: #ff4b1e50;
+      color: #ff4c1e;
+    }
+    &.icon-receita {
+      color: #43a446;
+      background-color: #43a44650;
+    }
+  }
+}

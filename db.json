@@ -1,0 +1,171 @@
+{
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Moradia",
+      "descricao": "Pagamentos de Contas da Cas"
+    },
+    {
+      "id": 2,
+      "nome": "Saúde",
+      "descricao": "Plano de Saúde e Remédios"
+    },
+    {
+      "id": 3,
+      "nome": "Lazer",
+      "descricao": "Cinema, parques, praia, etc"
+    },
+    {
+      "id": 4,
+      "nome": "Salário",
+      "descricao": "Recebimento de Salário"
+    },
+    {
+      "nome": "Freelancer",
+      "descricao": "Frelancer",
+      "id": 5
+    },
+    {
+      "nome": "Férias",
+      "descricao": "Recebimento de Férias",
+      "id": 6
+    }
+  ],
+  "entradas": [
+    {
+      "id": 1,
+      "nome": "Gás de Cozinha",
+      "valor": 70.8,
+      "categoriaId": 1,
+      "pago": true,
+      "tipo": "despesa",
+      "data": "14/03/2023"
+    },
+    {
+      "id": 2,
+      "nome": "Mercado",
+      "categoriaId": 2,
+      "pago": false,
+      "data": "14/03/2023",
+      "valor": 15,
+      "tipo": "despesa"
+    },
+    {
+      "id": 3,
+      "nome": "Salário na Empresa X",
+      "categoriaId": 4,
+      "pago": true,
+      "data": "15/03/2023",
+      "valor": 4405.49,
+      "tipo": "receita"
+    },
+    {
+      "id": 5,
+      "nome": "Mercado",
+      "categoriaId": 2,
+      "pago": true,
+      "data": "17/03/2023",
+      "valor": 30,
+      "tipo": "despesa"
+    },
+    {
+      "id": 6,
+      "nome": "Video Game",
+      "categoriaId": 3,
+      "pago": false,
+      "data": "17/03/2023",
+      "valor": 15,
+      "tipo": "despesa"
+    },
+    {
+      "id": 11,
+      "nome": "Uber",
+      "categoriaId": 2,
+      "pago": true,
+      "data": "17/03/2023",
+      "valor": 30,
+      "tipo": "despesa"
+    },
+    {
+      "id": 12,
+      "nome": "Aluguel",
+      "categoriaId": 3,
+      "pago": false,
+      "data": "23/03/2023",
+      "valor": 15,
+      "tipo": "despesa"
+    },
+    {
+      "id": 13,
+      "nome": "Gás de Cozinha",
+      "categoriaId": 2,
+      "pago": false,
+      "data": "25/03/2023",
+      "valor": 30,
+      "tipo": "despesa"
+    },
+    {
+      "id": 19,
+      "nome": "Netflix",
+      "categoriaId": 3,
+      "pago": false,
+      "data": "07/04/2023",
+      "valor": 15,
+      "tipo": "despesa"
+    },
+    {
+      "id": 21,
+      "nome": "Video Game",
+      "categoriaId": 2,
+      "pago": true,
+      "data": "17/04/2023",
+      "valor": 30,
+      "tipo": "despesa"
+    },
+    {
+      "id": 22,
+      "nome": "Cinema",
+      "categoriaId": 3,
+      "pago": true,
+      "data": "18/04/2023",
+      "valor": 15,
+      "tipo": "despesa"
+    },
+    {
+      "id": 23,
+      "nome": "Gasolina",
+      "categoriaId": 2,
+      "pago": false,
+      "data": "21/04/2023",
+      "valor": 130,
+      "tipo": "despesa"
+    },
+    {
+      "id": 44,
+      "nome": "Uber",
+      "categoriaId": 3,
+      "pago": true,
+      "data": "28/04/2023",
+      "valor": 15,
+      "tipo": "despesa"
+    },
+    {
+      "id": 55,
+      "nome": "Cinema",
+      "categoriaId": 2,
+      "pago": false,
+      "data": "28/04/2023",
+      "valor": 30,
+      "tipo": "despesa"
+    },
+    {
+      "nome": "(Jogo) Celeste",
+      "valor": 23.5,
+      "categoriaId": 3,
+      "pago": true,
+      "tipo": "despesa",
+      "data": "04/07/2023",
+      "id": 56
+    }
+  ]
+}
