@@ -4,19 +4,29 @@
   justify-content: center;
   flex-direction: column;
   gap: 0.5rem;
-  margin-top: 4rem;
+  margin-top: 1rem;
   padding: 0 1rem;
+  .content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+  }
 }
 .search-container {
   h3 {
     font-weight: 500;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
   }
   .inputs {
     display: flex;
     gap: 1rem;
     width: 100%;
-    max-width: 40rem;
 
     button {
       margin-top: 0.5rem;
@@ -24,19 +34,48 @@
   }
 }
 
-.cards-itens {
-  display: flex;
-  gap: 0.5rem;
-}
+mat-card.finance-card {
+  height: 100px;
+  .finance-card__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+  }
+  .finance-card__title {
+    font-weight: 400;
+  }
+  .finance-card__currency {
+    margin-top: 0.5rem;
+    font-size: 1.75rem;
+    font-weight: 500;
+  }
 
-@media (max-width: 1024px) {
-  .cards-itens {
-    flex-direction: column;
+  .finance-card__icon {
+    * {
+      font-size: 4rem;
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+    opacity: 0.5;
+  }
+  color: #f2f3f5;
+  &.receita {
+    background-color: rgb(75, 179, 75);
+  }
+  &.despesa {
+    background-color: rgb(75, 179, 75);
+    background-color: rgb(190, 81, 81);
+  }
+  &.saldo {
+    background-color: rgb(103, 58, 183);
   }
 }
 
-.title {
-  font-size: 3rem;
+.cards-itens {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
 }
 
 .mat-mdc-card {

@@ -1,7 +1,7 @@
 <div class="dashboard">
-  <h1 class="title">Minhas Finanças</h1>
   <form class="search-container" [formGroup]="formDashboard">
     <h3>Filtar por mês e ano</h3>
+
     <div class="inputs">
       <mat-form-field appearance="fill" class="input-item">
         <mat-label>Mês</mat-label>
@@ -16,7 +16,9 @@
       <mat-form-field appearance="fill" class="input-item">
         <mat-label>Ano</mat-label>
         <mat-select formControlName="ano">
-          <mat-option value="2023">2023</mat-option>
+          <mat-option *ngFor="let year of years" [value]="year.value">{{
+            year.viewValue
+          }}</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -33,41 +35,56 @@
     </div>
   </form>
 
-  <div class="cards-itens">
-    <div class="flex-item">
-      <mat-card class="receita">
-        <mat-card-header class="center">
-          <mat-card-title class="titulo"> Receitas </mat-card-title>
-        </mat-card-header>
+  <div class="content">
+    <div class="cards-itens">
+      <mat-card class="finance-card receita">
+        <mat-card-content class="finance-card__content">
+          <div>
+            <mat-card-title class="finance-card__title">
+              Receitas Totais
+            </mat-card-title>
+            <p class="finance-card__currency">
+              {{ receita | currency : "BRL" }}
+            </p>
+          </div>
+          <div class="finance-card__icon">
+            <mat-icon>bar_chart</mat-icon>
+          </div>
+        </mat-card-content>
+      </mat-card>
 
-        <mat-card-content class="center conteudo">
-          {{ receita | currency : "BRL" }}
+      <mat-card class="finance-card despesa">
+        <mat-card-content class="finance-card__content">
+          <div>
+            <mat-card-title class="finance-card__title">
+              Despesas Totais
+            </mat-card-title>
+            <p class="finance-card__currency">
+              {{ despesa | currency : "BRL" }}
+            </p>
+          </div>
+          <div class="finance-card__icon">
+            <mat-icon>bar_chart</mat-icon>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="finance-card saldo">
+        <mat-card-content class="finance-card__content">
+          <div>
+            <mat-card-title class="finance-card__title">
+              Saldo Total
+            </mat-card-title>
+            <p class="finance-card__currency">
+              {{ saldo | currency : "BRL" }}
+            </p>
+          </div>
+          <div class="finance-card__icon">
+            <mat-icon>bar_chart</mat-icon>
+          </div>
         </mat-card-content>
       </mat-card>
     </div>
-
-    <div class="flex-item">
-      <mat-card class="despesa">
-        <mat-card-header class="center">
-          <mat-card-title class="titulo"> Despesas </mat-card-title>
-        </mat-card-header>
-
-        <mat-card-content class="center conteudo">
-          {{ despesa | currency : "BRL" : "R$ " }}
-        </mat-card-content>
-      </mat-card>
-    </div>
-
-    <div class="flex-item">
-      <mat-card class="saldo">
-        <mat-card-header class="center">
-          <mat-card-title class="titulo"> Saldo </mat-card-title>
-        </mat-card-header>
-
-        <mat-card-content class="center conteudo">
-          {{ saldo | currency : "BRL" : "R$ " }}
-        </mat-card-content>
-      </mat-card>
-    </div>
+    <app-chart [entradas]="fullEntradas"></app-chart>
   </div>
 </div>

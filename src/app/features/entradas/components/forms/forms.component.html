@@ -38,12 +38,13 @@
       <mat-form-field class="full-width">
         <mat-label>Valor</mat-label>
         <input
-          type="number"
+          type="text"
           matInput
           placeholder="Ex. 125.00"
           formControlName="valor"
           mask="separator.2"
-          thousandSeparator=","
+          thousandSeparator="."
+          separator
           prefix="R$"
         />
       </mat-form-field>

@@ -44,3 +44,26 @@
     }
   }
 }
+
+.filter-inputs {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.chips-list p {
+  color: #636368;
+  margin: 0;
+}
+
+.row-not-found {
+  padding: 1.5rem;
+  display: flex;
+  width: 100%;
+  font-size: 1.125rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-weight: 500;
+}

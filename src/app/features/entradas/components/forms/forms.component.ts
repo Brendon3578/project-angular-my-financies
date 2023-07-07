@@ -73,10 +73,10 @@ export class FormsComponent implements OnInit {
   createForm() {
     this.formEntrada = this.formBuilder.group({
       nome: ["", Validators.required],
-      valor: [0, Validators.required],
+      valor: ["", Validators.required],
       categoriaId: ["", Validators.required],
       pago: [true],
-      tipo: ["", Validators.required],
+      tipo: ["despesa", Validators.required],
       data: [new Date(), Validators.required],
     });
   }

@@ -5,14 +5,17 @@ import { DashboardRoutingModule } from "./dashboard-routing.module";
 import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { MaterialModule } from "src/app/shared/material/material.module";
 import { ReactiveFormsModule } from "@angular/forms";
+import { ChartComponent } from "./components/chart/chart.component";
+import { NgChartsModule } from "ng2-charts";
 
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, ChartComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
+    NgChartsModule,
   ],
 })
 export class DashboardModule {}

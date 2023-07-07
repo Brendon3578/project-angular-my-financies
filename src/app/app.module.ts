@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from "./common/components/page-not-found/page-n
 import { LOCALE_ID } from "@angular/core";
 import localePt from "@angular/common/locales/pt";
 import { registerLocaleData } from "@angular/common";
+import { NgChartsModule } from 'ng2-charts';
 
 registerLocaleData(localePt);
 
@@ -22,6 +23,7 @@ registerLocaleData(localePt);
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    NgChartsModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: "pt-BR" }],
   bootstrap: [AppComponent],

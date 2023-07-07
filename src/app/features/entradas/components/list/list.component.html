@@ -11,6 +11,32 @@
       <mat-icon>add_card</mat-icon>
     </button>
   </div>
+  <form class="filter-inputs">
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput [formControl]="nomeFilter" placeholder="Ex. Despesa" />
+    </mat-form-field>
+    <div class="chips-list">
+      <p>Foi pago</p>
+      <mat-chip-listbox
+        [formControl]="pagoFilter"
+        aria-label="Seleção se foi pago"
+      >
+        <mat-chip-option value="true">Pago</mat-chip-option>
+        <mat-chip-option value="false" color="warn">Pendente</mat-chip-option>
+      </mat-chip-listbox>
+    </div>
+    <div class="chips-list">
+      <p>Tipo</p>
+      <mat-chip-listbox
+        [formControl]="tipoFilter"
+        aria-label="Seleção do tipo de entrada"
+      >
+        <mat-chip-option class="primary">Receita</mat-chip-option>
+        <mat-chip-option color="warn">Despesa</mat-chip-option>
+      </mat-chip-listbox>
+    </div>
+  </form>
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource">
       <!-- Nome Column -->
@@ -93,6 +119,18 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="6">
+          <div class="row-not-found">
+            <p>Nenhuma entrada encontrada</p>
+            <a mat-stroked-button color="primary" routerLink="criar">
+              Criar nova entrada
+              <mat-icon> add </mat-icon>
+            </a>
+          </div>
+        </td>
+      </tr>
     </table>
 
     <mat-paginator

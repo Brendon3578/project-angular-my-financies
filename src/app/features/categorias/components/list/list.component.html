@@ -54,6 +54,18 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="6">
+          <div class="row-not-found">
+            <p>Nenhuma categoria foi criada ainda</p>
+            <a mat-stroked-button color="primary" routerLink="criar">
+              Criar nova categoria
+              <mat-icon> add </mat-icon>
+            </a>
+          </div>
+        </td>
+      </tr>
     </table>
 
     <mat-paginator

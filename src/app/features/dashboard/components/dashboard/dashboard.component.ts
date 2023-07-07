@@ -10,10 +10,13 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 })
 export class DashboardComponent implements OnInit {
   entradas: EntradasList = [];
+  fullEntradas: EntradasList = [];
   saldo = 0;
   despesa = 0;
   receita = 0;
   today = new Date();
+  firstInit = true;
+  years = [{ value: 2023, viewValue: "2023" }];
 
   formDashboard!: FormGroup;
 
@@ -24,6 +27,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
+    this.getAllEntradas();
     this.getEntradas();
   }
 
@@ -31,6 +35,12 @@ export class DashboardComponent implements OnInit {
     this.formDashboard = this.formBuilder.group({
       mes: [this.today.getMonth(), Validators.required],
       ano: [this.today.getFullYear(), Validators.required],
+    });
+  }
+
+  getAllEntradas() {
+    this.dashboardService.getEntradas().subscribe((entradas) => {
+      this.fullEntradas = entradas;
     });
   }
 
