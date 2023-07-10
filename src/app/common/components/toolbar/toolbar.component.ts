@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { link } from "src/app/shared/interface/link";
+import { link } from "../../..//shared/interface/link";
 
 @Component({
   selector: "app-toolbar",

@@ -1,5 +1,5 @@
 import { Injectable, Injector } from "@angular/core";
-import { HttpBaseService } from "src/app/shared/base/http-base.service";
+import { HttpBaseService } from "../../../shared/base/http-base.service";
 import { EntradasList } from "../models/entrada.model";
 import { Observable } from "rxjs";
 

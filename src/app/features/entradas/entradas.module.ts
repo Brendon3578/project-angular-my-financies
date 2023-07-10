@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 import { EntradasRoutingModule } from "./entradas-routing.module";
-import { MaterialModule } from "src/app/shared/material/material.module";
+import { MaterialModule } from "../../shared/material/material.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { ListComponent } from "./components/list/list.component";
 import { FormsComponent } from "./components/forms/forms.component";

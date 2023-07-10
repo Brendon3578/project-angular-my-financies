@@ -4,7 +4,7 @@ import { CommonModule } from "@angular/common";
 import { CategoriasRoutingModule } from "./categorias-routing.module";
 import { ListComponent } from "./components/list/list.component";
 import { FormsComponent } from "./components/forms/forms.component";
-import { MaterialModule } from "src/app/shared/material/material.module";
+import { MaterialModule } from "../../shared/material/material.module";
 import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
