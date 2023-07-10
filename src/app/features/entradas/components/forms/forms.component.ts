@@ -6,6 +6,8 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { CategoriasService } from "src/app/features/categorias/service/categorias.service";
 import { CategoriasList } from "src/app/features/categorias/models/categoria.model";
 import * as dayjs from "dayjs";
+import { isEmpty } from "rxjs";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-forms",
@@ -20,7 +22,6 @@ export class FormsComponent implements OnInit {
   isNewEntrada: boolean = false;
   buttonMessage: string = "Salvar";
   formTitle: string = "Editar entrada";
-  categorias: CategoriasList = [];
 
   categorias$ = this.categoriasService.getCategorias();
 
@@ -34,7 +35,8 @@ export class FormsComponent implements OnInit {
     private readonly categoriasService: CategoriasService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -109,10 +111,17 @@ export class FormsComponent implements OnInit {
   createEntrada(payload: Entrada) {
     this.entradasService.createEntrada(payload).subscribe(() => {
       this.redirectToMainPage();
+      this.openSnackBar(`Entrada "${payload.nome}" criada com sucesso`);
     });
   }
 
   redirectToMainPage() {
     this.router.navigate(["entradas"]);
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, "Fechar", {
+      duration: 4000,
+    });
   }
 }

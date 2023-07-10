@@ -12,7 +12,7 @@
     </button>
   </div>
   <form class="filter-inputs">
-    <mat-form-field>
+    <mat-form-field class="max-width">
       <mat-label>Nome</mat-label>
       <input matInput [formControl]="nomeFilter" placeholder="Ex. Despesa" />
     </mat-form-field>
@@ -124,7 +124,13 @@
         <td class="mat-cell" colspan="6">
           <div class="row-not-found">
             <p>Nenhuma entrada encontrada</p>
-            <a mat-stroked-button color="primary" routerLink="criar">
+
+            <a
+              mat-stroked-button
+              color="primary"
+              routerLink="criar"
+              *ngIf="entradas.length == 0"
+            >
               Criar nova entrada
               <mat-icon> add </mat-icon>
             </a>
@@ -134,7 +140,7 @@
     </table>
 
     <mat-paginator
-      [pageSizeOptions]="[5, 10, 15, 20]"
+      [pageSizeOptions]="[10, 15, 20]"
       showFirstLastButtons
       aria-label="Selecione uma página das entradas"
     >

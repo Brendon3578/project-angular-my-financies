@@ -6,6 +6,15 @@
       {{ formTitle }}
     </h1>
 
+    <div class="categoria-empty" *ngIf="(categorias$ | async)?.length == 0">
+      <span> Nenhuma categoria foi cadastrada ainda! </span>
+
+      <a mat-stroked-button color="warn" routerLink="/categorias/criar">
+        Criar nova categoria
+        <mat-icon> warning </mat-icon>
+      </a>
+    </div>
+
     <mat-form-field class="full-width">
       <mat-label>Entrada</mat-label>
       <input matInput placeholder="Ex. Gás de Cozinha" formControlName="nome" />

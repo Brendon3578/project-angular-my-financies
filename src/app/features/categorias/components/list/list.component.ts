@@ -4,6 +4,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { CategoriasService } from "./../../service/categorias.service";
 import { Categoria, CategoriasList } from "../../models/categoria.model";
 import { Router } from "@angular/router";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-list",
@@ -19,7 +20,8 @@ export class ListComponent implements AfterViewInit, OnInit {
 
   constructor(
     private categoriasService: CategoriasService,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -43,11 +45,19 @@ export class ListComponent implements AfterViewInit, OnInit {
 
   delete(id: number | string) {
     this.categoriasService.deleteCategoria(id).subscribe((response) => {
+      console.log(response);
       this.searchCategorias();
+      this.openSnackBar("Categoria removida com sucesso");
     });
   }
 
   redirectToCreateCategoria() {
     this.router.navigate(["categorias", "criar"]);
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, "Fechar", {
+      duration: 4000,
+    });
   }
 }

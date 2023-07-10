@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
 import { EntradasService } from "../../service/entradas.service";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { Subscription, distinctUntilChanged, reduce } from "rxjs";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-list",
@@ -38,7 +39,8 @@ export class ListComponent implements OnInit {
 
   constructor(
     private entradasService: EntradasService,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -80,6 +82,7 @@ export class ListComponent implements OnInit {
   delete(id: number | string) {
     this.entradasService.deleteEntrada(id).subscribe((response) => {
       this.searchEntradas();
+      this.openSnackBar("Entrada deletada com sucesso");
     });
   }
 
@@ -123,5 +126,11 @@ export class ListComponent implements OnInit {
       }
     };
     return myFilterPredicate;
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, "Fechar", {
+      duration: 4000,
+    });
   }
 }

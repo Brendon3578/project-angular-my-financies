@@ -44,7 +44,7 @@ export class ChartComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log(this.entradas);
     this.entradas.forEach((entrada) => {
-      let month = parseInt(entrada.data.split("/")[1]);
+      let month = parseInt(entrada.data.split("/")[1]) - 1;
 
       if (!(entrada.tipo == "despesa" || entrada.tipo == "receita")) {
         throw new Error("Tipo de entrada não categorizada!");
