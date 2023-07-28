@@ -122,3 +122,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     </kbd>
 </span>
 </p>
+
+## Página de erro 404 (Quando a rota não é encontrada)
+
+<p align="center">
+    <kbd>
+        <img src="./.github/preview-8.PNG"style="border-radius: 5px" alt="Website" height="400">
+    </kbd>
+</p>

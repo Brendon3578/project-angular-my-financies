@@ -23,7 +23,7 @@
     {
       "id": 5,
       "nome": "Trabalho extra de Freelancer",
-      "descricao": "Trabalhos de freelancer sendo desenvolvedor"
+      "descricao": "Trabalhos de freelancer sendo desenvolvedor web"
     },
     {
       "nome": "Outros",
@@ -265,6 +265,15 @@
       "pago": true,
       "tipo": "despesa",
       "data": "02/02/2023"
+    },
+    {
+      "nome": "Gás de Cozinha",
+      "valor": 125,
+      "categoriaId": 1,
+      "pago": true,
+      "tipo": "despesa",
+      "data": "11/07/2023",
+      "id": 66
     }
   ]
 }
