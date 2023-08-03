@@ -1,5 +1,9 @@
 # Projeto Angular Minhas Finanças 💳
 
+![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
+![RxJS](https://img.shields.io/badge/rxjs-%23B7178C.svg?style=for-the-badge&logo=reactivex&logoColor=white)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+
 Repositório de estudo sobre o Angular 16, foi criado uma aplicação no modelo de CRUD (Create, Read, Update, Delete) para administrar entradas de despesas e receitas do usuário.
 
 O Projeto foi desenvolvido utilizando o HTTP Cliente nativo do Angular para lidar com requisições HTTP, foi usado o Reactive Forms para trabalhar com formulários de modo reativo
@@ -42,10 +46,11 @@ O Projeto foi desenvolvido utilizando o HTTP Cliente nativo do Angular para lida
 
 ## Abrir a aplicação no ambiente de desenvolvimento
 
-- Baixe as dependências com o `npm install`
+- Baixe as dependências com o comando `npm install`
+- Use a CLI do Angular para iniciar a aplicação com o comando `ng serve`
 - Usa-se o programa Mockoon para servir como servidor REST para a aplicação, para isso abra o **environment** `minhasfinancias-mockoon.json` que está nesse repositório dentro do programa Mockoon
   - Para a autenticação dentro da aplicação usa-se o login `brendon@email.com` e a senha `1234`
-  - A funcionaldiade de cadastro ainda não está implementada nesta aplicação
+  - A funcionalidade de cadastro ainda não está implementada nesta aplicação
 
 ## 🖼 Imagens da Aplicação
 
