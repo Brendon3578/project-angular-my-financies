@@ -1,0 +1,21 @@
+.done-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+
+  .image {
+    img {
+      width: 10rem;
+      height: 10rem;
+      object-fit: contain;
+
+    }
+  }
+}
+
+.button-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}

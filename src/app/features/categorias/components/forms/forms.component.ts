@@ -3,7 +3,7 @@ import { CategoriasService } from "../../service/categorias.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Categoria } from "../../models/categoria.model";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { MatSnackBar } from "@angular/material/snack-bar";
+import { SnackBarService } from "../../../../shared/material/snack-bar/snack-bar.service";
 
 @Component({
   selector: "app-forms",
@@ -24,7 +24,7 @@ export class FormsComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private _snackBar: MatSnackBar
+    private snackBarService: SnackBarService
   ) {}
 
   ngOnInit(): void {
@@ -80,17 +80,13 @@ export class FormsComponent implements OnInit {
   createCategoria(payload: Categoria) {
     this.categoriasService.createCategoria(payload).subscribe(() => {
       this.redirectToMainPage();
-      this.openSnackBar(`Categoria "${payload.nome}" criada com sucesso`);
+      this.snackBarService.openSnackBar(
+        `Categoria "${payload.nome}" criada com sucesso`
+      );
     });
   }
 
   redirectToMainPage() {
     this.router.navigate(["categorias"]);
-  }
-
-  openSnackBar(message: string) {
-    this._snackBar.open(message, "Fechar", {
-      duration: 4000,
-    });
   }
 }

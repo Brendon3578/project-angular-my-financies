@@ -1,0 +1,102 @@
+<main class="login-main">
+  <mat-card class="login">
+    <mat-card-header>
+      <mat-card-title class="title">
+        <span class="icon">
+          <mat-icon> person_add </mat-icon>
+        </span>
+        Cadastrar nova credencial
+      </mat-card-title>
+      <mat-card-subtitle>
+        Digite suas credenciais para criar um cadastro e poder gerenciar suas finanças individualmente
+        <span class="link-container">
+          Se já possui um cadastro,
+          <a routerLink="/login"> clique aqui para se logar </a>
+        </span>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="login__container">
+
+      <mat-stepper [linear]="false" #stepper [linear]="true">
+        <mat-step [stepControl]="firstFormGroup" optional="true" label="Dados Pessoais">
+          <form [formGroup]="firstFormGroup">
+            <mat-form-field>
+              <mat-label>Nome Completo</mat-label>
+              <input type="text" matInput formControlName="name" placeholder="Digite seu nome completo" />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Endereço</mat-label>
+              <input type="text" matInput formControlName="address" placeholder="Digite seu endereço completo" />
+            </mat-form-field>
+            <div class="button-actions">
+              <button mat-raised-button matStepperNext type="button">Continuar</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" label="Cadastro">
+          <form [formGroup]="secondFormGroup">
+
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com" />
+              <mat-error *ngIf="secondFormGroup.controls['email'].hasError('email')">
+                Digite um e-mail <strong> válido</strong>
+              </mat-error>
+              <mat-error *ngIf="secondFormGroup.controls['email'].hasError('required')">
+                E-mail é <strong>obrigatório</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Senha</mat-label>
+              <input type="password" matInput formControlName="password" placeholder="Digite sua senha" />
+              <mat-error *ngIf="secondFormGroup.controls['password'].hasError('required')">
+                A Senha é <strong>obrigatório</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Confirme sua senha</mat-label>
+              <input type="password" matInput formControlName="confirmPassword" placeholder="Confirme sua sua senha"
+                [errorStateMatcher]="passwordMatcher" />
+              <mat-error *ngIf="passwordMatchError">
+                As senhas não <strong>são iguais</strong>
+              </mat-error>
+            </mat-form-field>
+            <div class="button-actions">
+              <button mat-raised-button matStepperPrevious type="button">Voltar</button>
+              <button mat-raised-button color="primary" (click)="register()" [disabled]="!secondFormGroup.valid">
+                <mat-icon>check</mat-icon>
+                Cadastrar
+              </button>
+
+            </div>
+          </form>
+        </mat-step>
+        <ng-template matStepperIcon="edit">
+          <mat-icon>check</mat-icon>
+        </ng-template>
+        <mat-step label="Finalizado">
+          <div class="done-container">
+            <h1>
+              Cadastro finalizado com sucesso!
+            </h1>
+
+            <div class="image">
+              <img src="assets/complete-form.svg" alt="Ilustração de formulário concluido">
+            </div>
+
+          </div>
+          <div class="button-actions">
+            <a color="primary" mat-raised-button routerLink="/login">
+              <mat-icon>arrow_back</mat-icon>
+              Voltar para página de login</a>
+          </div>
+
+        </mat-step>
+      </mat-stepper>
+
+    </mat-card-content>
+  </mat-card>
+  <div class="circle"></div>
+</main>

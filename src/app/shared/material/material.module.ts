@@ -15,6 +15,8 @@ import { MatNativeDateModule } from "@angular/material/core";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatChipsModule } from "@angular/material/chips";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatStepperModule } from "@angular/material/stepper"
 
 @NgModule({
   declarations: [],
@@ -35,6 +37,8 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatCheckboxModule,
     MatChipsModule,
     MatSnackBarModule,
+    MatMenuModule,
+    MatStepperModule
   ],
   exports: [
     MatCardModule,
@@ -52,6 +56,8 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatCheckboxModule,
     MatChipsModule,
     MatSnackBarModule,
+    MatMenuModule,
+    MatStepperModule
   ],
 })
 export class MaterialModule {}

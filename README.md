@@ -29,43 +29,48 @@ O Projeto foi desenvolvido utilizando o HTTP Cliente nativo do Angular para lida
 - Angular Material
 - DayJs
 - NG2 Chart (chart.js - biblioteca de gráfico - para o Angular)
-- json server para um servidor simples em json (`db.json`)
+- ~~json server para um servidor simples em json (`db.json`)~~
+  - Substituição de servidor RESP API fictício de json-server para o programa Mockoon
 
 ## 🧱 Features
 
 - Utilização do gráfico da biblioteca NG2 para a página de Dashboard
 - Utilização do **HTTP Client** e **Observables** do Angular para requisições HTTP
 - Utilização do **Angular Material** para estilização nativa do Angular
-- Servidor **json-server** para a plicação
+- Servidor REST API fictício com o Mockoon para a aplicação
 - Filtragem na tabela de Entradas utilizando **Reactive Forms**
 
-## Servidor no ambiente de desenvolvimento
+## Abrir a aplicação no ambiente de desenvolvimento
 
-Baixe as dependências com o `npm install`
-
-Deixe rodando em um terminal a parte o servidor do **json-server**, usando o comando `npm run server`
-
-Execute o comando `ng serve` para iniciar o servidor Angular no ambiente de desenvolvimento. Depois abra a seguinte URL `http://localhost:4200/` para testar aplicação.
-
-## Outros comandos (em Inglês)
-
-### Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-### Executando testes unitários (unit tests)
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-### Rodando testes end-to-end
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-### Ajuda na aplicação do Angular
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Baixe as dependências com o `npm install`
+- Usa-se o programa Mockoon para servir como servidor REST para a aplicação, para isso abra o **environment** `minhasfinancias-mockoon.json` que está nesse repositório dentro do programa Mockoon
+  - Para a autenticação dentro da aplicação usa-se o login `brendon@email.com` e a senha `1234`
+  - A funcionaldiade de cadastro ainda não está implementada nesta aplicação
 
 ## 🖼 Imagens da Aplicação
+
+## Página de Login
+
+<p align="center">
+<span align="center">
+    <kbd>
+        <img src="./.github/preview-9.PNG"style="border-radius: 5px" alt="Website" width="735">
+    </kbd>
+</span>
+</p>
+
+<p align="center">
+<span align="center">
+    <kbd>
+        <img src="./.github/preview-10.PNG"style="border-radius: 5px" alt="Website" height="340">
+    </kbd>
+</span>
+<span align="center">
+    <kbd>
+        <img src="./.github/preview-11.PNG"style="border-radius: 5px" alt="Website" height="340">
+    </kbd>
+</span>
+</p>
 
 ### Página de Dashboard
 

@@ -1,0 +1,220 @@
+{
+  "uuid": "b0989757-8e6f-4d93-b1e6-90acdf55a428",
+  "lastMigration": 28,
+  "name": "Minhas Financias Mockoon",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "3cd03b09-8625-4d5a-ae89-201d5eb621f2",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "entradas",
+      "responses": [
+        {
+          "uuid": "3ac4a4d3-089d-4103-9672-d2e21c30f0a0",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "j6aj",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "67bcc18a-d4f0-478f-b7b6-a6aebe34169f",
+      "type": "crud",
+      "documentation": "",
+      "method": "",
+      "endpoint": "categorias",
+      "responses": [
+        {
+          "uuid": "e0666716-a254-4b6d-9470-143c6e14b0ea",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "DATABUCKET",
+          "filePath": "",
+          "databucketID": "7uhm",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    },
+    {
+      "uuid": "00545c12-8bcc-4493-a6d7-8a1cb7aa0cff",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "authentication",
+      "responses": [
+        {
+          "uuid": "f414648f-26d1-4294-b509-e612f6a3702d",
+          "body": "{\n  \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c\",\n  \"user\": {\n    \"name\": \"Brendon Gomes\",\n    \"email\": \"brendon@email.com\",\n    \"id\": 1,\n    \"role\": \"USER\"\n  }\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "email",
+              "value": "brendon@email.com",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "password",
+              "value": "1234",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id"
+        },
+        {
+          "uuid": "d0f1d258-0484-4346-a20a-e219e8ef9b00",
+          "body": "{\n  \"message\": \"Email ou senha incorreto\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "email",
+              "value": "brendon@email.com",
+              "invert": true,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "password",
+              "value": "1234",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id"
+        }
+      ],
+      "enabled": true,
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "3cd03b09-8625-4d5a-ae89-201d5eb621f2"
+    },
+    {
+      "type": "route",
+      "uuid": "67bcc18a-d4f0-478f-b7b6-a6aebe34169f"
+    },
+    {
+      "type": "route",
+      "uuid": "00545c12-8bcc-4493-a6d7-8a1cb7aa0cff"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [
+    {
+      "uuid": "61c225cc-7244-4046-a249-fe2a3bce11ba",
+      "id": "7uhm",
+      "name": "Categorias",
+      "documentation": "",
+      "value": "[\r\n    {\r\n      \"nome\": \"Moradia\",\r\n      \"descricao\": \"Pagamentos de Contas da Casa\",\r\n      \"id\": 1\r\n    },\r\n    {\r\n      \"nome\": \"Saúde\",\r\n      \"descricao\": \"Plano de Saúde e Remédios\",\r\n      \"id\": 2\r\n    },\r\n    {\r\n      \"nome\": \"Lazer\",\r\n      \"descricao\": \"Cinema, parques, praia, etc.\",\r\n      \"id\": 3\r\n    },\r\n    {\r\n      \"nome\": \"Salário\",\r\n      \"descricao\": \"Recebimento de Salário\",\r\n      \"id\": 4\r\n    },\r\n    {\r\n      \"id\": 5,\r\n      \"nome\": \"Trabalho extra de Freelancer\",\r\n      \"descricao\": \"Trabalhos de freelancer sendo desenvolvedor web\"\r\n    },\r\n    {\r\n      \"nome\": \"Outros\",\r\n      \"descricao\": \"Outras despesas\",\r\n      \"id\": 6\r\n    }\r\n  ]"
+    },
+    {
+      "uuid": "d93960b4-c025-4167-857c-22258aec464c",
+      "id": "j6aj",
+      "name": "Entradas",
+      "documentation": "",
+      "value": "  [\r\n    {\r\n      \"id\": 1,\r\n      \"nome\": \"Gás de Cozinha\",\r\n      \"categoriaId\": 1,\r\n      \"pago\": true,\r\n      \"data\": \"14/03/2023\",\r\n      \"valor\": 70.8,\r\n      \"tipo\": \"despesa\"\r\n    },\r\n    {\r\n      \"id\": 2,\r\n      \"nome\": \"Mercado\",\r\n      \"categoriaId\": 2,\r\n      \"pago\": false,\r\n      \"data\": \"14/03/2023\",\r\n      \"valor\": 15,\r\n      \"tipo\": \"despesa\"\r\n    },\r\n    {\r\n      \"id\": 3,\r\n      \"nome\": \"Salário na Empresa X\",\r\n      \"valor\": 150.5,\r\n      \"categoriaId\": 4,\r\n      \"pago\": true,\r\n      \"tipo\": \"receita\",\r\n      \"data\": \"15/03/2023\"\r\n    },\r\n    {\r\n      \"id\": 4,\r\n      \"nome\": \"Netflix\",\r\n      \"categoriaId\": 3,\r\n      \"pago\": true,\r\n      \"data\": \"16/03/2023\",\r\n      \"valor\": 15,\r\n      \"tipo\": \"despesa\"\r\n    },\r\n    {\r\n      \"id\": 5,\r\n      \"nome\": \"Mercado\",\r\n      \"categoriaId\": 2,\r\n      \"pago\": true,\r\n      \"data\": \"17/03/2023\",\r\n      \"valor\": 30,\r\n      \"tipo\": \"despesa\"\r\n    },\r\n    {\r\n      \"id\": 6,\r\n      \"nome\": \"Video Game\",\r\n      \"categoriaId\": 3,\r\n      \"pago\": false,\r\n      \"data\": \"17/03/2023\",\r\n      \"valor\": 15,\r\n      \"tipo\": \"despesa\"\r\n    },\r\n    {\r\n      \"id\": 11,\r\n      \"nome\": \"Uber\",\r\n      \"categoriaId\": 2,\r\n      \"pago\": true,\r\n      \"data\": \"17/03/2023\",\r\n      \"valor\": 30,\r\n      \"tipo\": \"despesa\"\r\n    },\r\n    {\r\n      \"id\": 12,\r\n      \"nome\": \"Aluguel\",\r\n      \"categoriaId\": 3,\r\n      \"pago\": false,\r\n      \"data\": \"23/03/2023\",\r\n      \"valor\": 15,\r\n      \"tipo\": \"despesa\"\r\n    },\r\n    {\r\n      \"id\": 13,\r\n      \"nome\": \"Gás de Cozinha\",\r\n      \"categoriaId\": 2,\r\n      \"pago\": false,\r\n      \"data\": \"25/03/2023\",\r\n      \"valor\": 30,\r\n      \"tipo\": \"despesa\"\r\n    },\r\n    {\r\n      \"id\": 14,\r\n      \"nome\": \"Pagamento Pelo Projeto XYZ\",\r\n      \"valor\": 2000,\r\n      \"categoriaId\": 5,\r\n      \"pago\": true,\r\n      \"tipo\": \"receita\",\r\n      \"data\": \"25/03/2023\"\r\n    },\r\n    {\r\n      \"id\": 19,\r\n      \"nome\": \"Netflix\",\r\n      \"categoriaId\": 3,\r\n      \"pago\": false,\r\n      \"data\": \"07/04/2023\",\r\n      \"valor\": 15,\r\n      \"tipo\": \"despesa\"\r\n    },\r\n    {\r\n      \"id\": 21,\r\n      \"nome\": \"Video Game\",\r\n      \"categoriaId\": 2,\r\n      \"pago\": true,\r\n      \"data\": \"17/04/2023\",\r\n      \"valor\": 30,\r\n      \"tipo\": \"despesa\"\r\n    },\r\n    {\r\n      \"id\": 22,\r\n      \"nome\": \"Cinema\",\r\n      \"categoriaId\": 3,\r\n      \"pago\": true,\r\n      \"data\": \"18/04/2023\",\r\n      \"valor\": 15,\r\n      \"tipo\": \"despesa\"\r\n    },\r\n    {\r\n      \"id\": 23,\r\n      \"nome\": \"Gasolina\",\r\n      \"categoriaId\": 2,\r\n      \"pago\": false,\r\n      \"data\": \"21/04/2023\",\r\n      \"valor\": 130,\r\n      \"tipo\": \"despesa\"\r\n    },\r\n    {\r\n      \"id\": 44,\r\n      \"nome\": \"Uber\",\r\n      \"categoriaId\": 3,\r\n      \"pago\": true,\r\n      \"data\": \"28/04/2023\",\r\n      \"valor\": 15,\r\n      \"tipo\": \"despesa\"\r\n    },\r\n    {\r\n      \"id\": 55,\r\n      \"nome\": \"Cinema\",\r\n      \"categoriaId\": 2,\r\n      \"pago\": false,\r\n      \"data\": \"28/04/2023\",\r\n      \"valor\": 30,\r\n      \"tipo\": \"despesa\"\r\n    },\r\n    {\r\n      \"id\": 56,\r\n      \"nome\": \"Site responsivo\",\r\n      \"valor\": 400,\r\n      \"categoriaId\": 5,\r\n      \"pago\": true,\r\n      \"tipo\": \"receita\",\r\n      \"data\": \"14/02/2023\"\r\n    },\r\n    {\r\n      \"id\": 57,\r\n      \"nome\": \"Salário na empresa X\",\r\n      \"valor\": 1350,\r\n      \"categoriaId\": 4,\r\n      \"pago\": true,\r\n      \"tipo\": \"receita\",\r\n      \"data\": \"13/04/2023\"\r\n    },\r\n    {\r\n      \"id\": 58,\r\n      \"nome\": \"Gasto em remédios\",\r\n      \"valor\": 600,\r\n      \"categoriaId\": 2,\r\n      \"pago\": true,\r\n      \"tipo\": \"despesa\",\r\n      \"data\": \"29/03/2023\"\r\n    },\r\n    {\r\n      \"id\": 59,\r\n      \"nome\": \"Salário\",\r\n      \"valor\": 1800,\r\n      \"categoriaId\": 4,\r\n      \"pago\": true,\r\n      \"tipo\": \"receita\",\r\n      \"data\": \"18/05/2023\"\r\n    },\r\n    {\r\n      \"id\": 60,\r\n      \"nome\": \"Salário\",\r\n      \"valor\": 1000,\r\n      \"categoriaId\": 4,\r\n      \"pago\": true,\r\n      \"tipo\": \"receita\",\r\n      \"data\": \"22/06/2023\"\r\n    },\r\n    {\r\n      \"id\": 61,\r\n      \"nome\": \"Video Playstation 5\",\r\n      \"valor\": 600,\r\n      \"categoriaId\": 3,\r\n      \"pago\": true,\r\n      \"tipo\": \"despesa\",\r\n      \"data\": \"25/05/2023\"\r\n    },\r\n    {\r\n      \"nome\": \"Salário\",\r\n      \"valor\": 1250,\r\n      \"categoriaId\": 4,\r\n      \"pago\": true,\r\n      \"tipo\": \"receita\",\r\n      \"data\": \"09/01/2023\",\r\n      \"id\": 62\r\n    },\r\n    {\r\n      \"id\": 63,\r\n      \"nome\": \"Site\",\r\n      \"valor\": 500,\r\n      \"categoriaId\": 5,\r\n      \"pago\": true,\r\n      \"tipo\": \"receita\",\r\n      \"data\": \"02/02/2023\"\r\n    },\r\n    {\r\n      \"id\": 64,\r\n      \"nome\": \"Gás de cozinha\",\r\n      \"valor\": 350,\r\n      \"categoriaId\": 6,\r\n      \"pago\": true,\r\n      \"tipo\": \"despesa\",\r\n      \"data\": \"11/01/2023\"\r\n    },\r\n    {\r\n      \"id\": 65,\r\n      \"nome\": \"Gasto\",\r\n      \"valor\": 400,\r\n      \"categoriaId\": 6,\r\n      \"pago\": true,\r\n      \"tipo\": \"despesa\",\r\n      \"data\": \"02/02/2023\"\r\n    },\r\n    {\r\n      \"nome\": \"Gás de Cozinha\",\r\n      \"valor\": 125,\r\n      \"categoriaId\": 1,\r\n      \"pago\": true,\r\n      \"tipo\": \"despesa\",\r\n      \"data\": \"11/07/2023\",\r\n      \"id\": 66\r\n    }\r\n  ]"
+    }
+  ]
+}

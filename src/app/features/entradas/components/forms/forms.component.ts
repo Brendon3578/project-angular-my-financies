@@ -4,10 +4,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Entrada } from "../../models/entrada.model";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { CategoriasService } from "../../../categorias/service/categorias.service";
-import { CategoriasList } from "../../../categorias/models/categoria.model";
 import * as dayjs from "dayjs";
-import { isEmpty } from "rxjs";
-import { MatSnackBar } from "@angular/material/snack-bar";
+import { SnackBarService } from "../../../../shared/material/snack-bar/snack-bar.service";
 
 @Component({
   selector: "app-forms",
@@ -36,7 +34,7 @@ export class FormsComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private _snackBar: MatSnackBar
+    private snackBarService: SnackBarService
   ) {}
 
   ngOnInit(): void {
@@ -93,7 +91,7 @@ export class FormsComponent implements OnInit {
       const payload: Entrada = this.formEntrada.getRawValue();
       // this
 
-      console.log(payload);
+      // console.log(payload);
       if (this.isNewEntrada) {
         this.createEntrada(payload);
       } else {
@@ -111,17 +109,13 @@ export class FormsComponent implements OnInit {
   createEntrada(payload: Entrada) {
     this.entradasService.createEntrada(payload).subscribe(() => {
       this.redirectToMainPage();
-      this.openSnackBar(`Entrada "${payload.nome}" criada com sucesso`);
+      this.snackBarService.openSnackBar(
+        `Entrada "${payload.nome}" criada com sucesso`
+      );
     });
   }
 
   redirectToMainPage() {
     this.router.navigate(["entradas"]);
-  }
-
-  openSnackBar(message: string) {
-    this._snackBar.open(message, "Fechar", {
-      duration: 4000,
-    });
   }
 }

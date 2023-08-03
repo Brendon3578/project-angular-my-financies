@@ -6,9 +6,10 @@ import { MatPaginator } from "@angular/material/paginator";
 import { OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { EntradasService } from "../../service/entradas.service";
-import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
-import { Subscription, distinctUntilChanged, reduce } from "rxjs";
+import { FormControl } from "@angular/forms";
+import { Subscription } from "rxjs";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { SnackBarService } from "../../../../shared/material/snack-bar/snack-bar.service";
 
 @Component({
   selector: "app-list",
@@ -40,7 +41,7 @@ export class ListComponent implements OnInit {
   constructor(
     private entradasService: EntradasService,
     private router: Router,
-    private _snackBar: MatSnackBar
+    private snackBarService: SnackBarService
   ) {}
 
   ngOnInit(): void {
@@ -70,7 +71,7 @@ export class ListComponent implements OnInit {
   searchEntradas() {
     this.entradasService.getEntradas().subscribe((entradas) => {
       this.entradas = entradas;
-      console.log(entradas);
+      // console.log(entradas);
       this.dataSource.data = this.entradas;
     });
   }
@@ -82,7 +83,7 @@ export class ListComponent implements OnInit {
   delete(id: number | string) {
     this.entradasService.deleteEntrada(id).subscribe((response) => {
       this.searchEntradas();
-      this.openSnackBar("Entrada deletada com sucesso");
+      this.snackBarService.openSnackBar("Entrada deletada com sucesso");
     });
   }
 
@@ -126,11 +127,5 @@ export class ListComponent implements OnInit {
       }
     };
     return myFilterPredicate;
-  }
-
-  openSnackBar(message: string) {
-    this._snackBar.open(message, "Fechar", {
-      duration: 4000,
-    });
   }
 }

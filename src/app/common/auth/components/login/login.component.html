@@ -1,0 +1,63 @@
+<main class="login-main">
+  <mat-card class="login">
+    <mat-card-header>
+      <mat-card-title class="title"
+        >Acessar suas finanças
+        <span class="icon">
+          <mat-icon> wallet </mat-icon>
+        </span>
+      </mat-card-title>
+      <mat-card-subtitle>
+        Digite suas credenciais para poder gerenciar suas finanças
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="login__container">
+      <form class="example-form" [formGroup]="loginForm">
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input
+            type="email"
+            matInput
+            formControlName="email"
+            placeholder="Ex. pat@example.com"
+          />
+          <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+            Digite um e-mail <strong> válido</strong>
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+            E-mail é <strong>obrigatório</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Senha</mat-label>
+          <input
+            type="password"
+            matInput
+            formControlName="password"
+            placeholder="Digite sua senha"
+          />
+
+          <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            A Senha é <strong>obrigatório</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="login()"
+          [disabled]="!loginForm.valid"
+        >
+          <mat-icon>login</mat-icon>
+          Entrar
+        </button>
+        <span class="link-container">
+          Não possui um cadastro?
+          <a routerLink="sign-up"> clique aqui para se cadastrar </a>
+        </span>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <div class="circle"></div>
+</main>

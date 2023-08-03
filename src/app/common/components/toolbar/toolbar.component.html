@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar *ngIf="isLoggedIn">
   <span class="toolbar-title"
     >Minhas Finanças
     <span class="toolbar-icon">
@@ -14,5 +14,18 @@
       mat-stroked-button
       >{{ link.label }}</a
     >
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Botão de ícone para abrir o menu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()" type="button">
+        <mat-icon> logout </mat-icon>
+        <span> Sair </span>
+      </button>
+    </mat-menu>
   </div>
 </mat-toolbar>
